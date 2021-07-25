@@ -1,12 +1,11 @@
-const express = require('express')
-const mongoose = require('mongoose')
+import { connect, connection } from 'mongoose'
 
 var app = express()//Route
 app.get('/',function(req,res){
 	res.send('hello Céline')
 })//MongoDB connection
-mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true, useUnifiedTopology: true });
-mongoose.connection.once('open',function(){
+connect('mongodb://localhost:27017/test', { useNewUrlParser: true, useUnifiedTopology: true });
+connection.once('open',function(){
 	console.log('Database connected Successfully');
 }).on('error',function(err){
 	console.log('Error', err);

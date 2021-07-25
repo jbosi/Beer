@@ -1,19 +1,53 @@
 {
-	"env": {
-		"browser": true,
-		"es2021": true
-	},
-	"extends": [
-		"eslint:recommended",
-		"plugin:@typescript-eslint/recommended"
-	],
-	"parser": "@typescript-eslint/parser",
-	"parserOptions": {
-		"ecmaVersion": 12
-	},
-	"plugins": [
-		"@typescript-eslint"
-	],
-	"rules": {
-	}
+	"root": true,
+	"overrides": [
+		{
+			"files": ["*.js"],
+			"parserOptions": {
+				"ecmaVersion": 2020
+			},
+			"env": {
+				"es6": true
+			},
+			"rules": {}
+		},
+		{
+			"files": ["*.ts"],
+			"parserOptions": {
+				"project": ["tsconfig.json", "e2e/tsconfig.json"],
+				"createDefaultProgram": true
+			},
+			"extends": [
+				"plugin:@angular-eslint/ng-cli-compat",
+				"plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
+				"plugin:@angular-eslint/template/process-inline-templates"
+			],
+			"rules": {
+				"@angular-eslint/component-selector": "off",
+				"@angular-eslint/directive-selector": "off",
+				"@typescript-eslint/naming-convention": "warn",
+				"@typescript-eslint/consistent-type-definitions": "error",
+				"@typescript-eslint/dot-notation": "off",
+				"@typescript-eslint/no-unused-expressions": "off",
+				"@typescript-eslint/explicit-member-accessibility": [
+					"off",
+					{
+						"accessibility": "explicit"
+					}
+				],
+				"@typescript-eslint/no-empty-interface": "off",
+				"brace-style": ["error", "1tbs"],
+				"id-blacklist": "off",
+				"id-match": "off",
+				"jsdoc/no-types": "off",
+				"no-underscore-dangle": "off",
+				"prefer-arrow/prefer-arrow-functions": "off"
+			}
+		},
+		{
+			"files": ["*.html"],
+			"extends": ["plugin:@angular-eslint/template/recommended"],
+			"rules": {}
+		}
+	]
 }
