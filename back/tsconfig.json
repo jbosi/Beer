@@ -1,6 +1,7 @@
 {
 	"compilerOptions": {
 		"module": "commonjs",
+		"rootDir": "./",
 		"esModuleInterop": true,
 		"target": "es6",
 		"sourceMap": true,
@@ -9,9 +10,7 @@
 		"noImplicitAny": true,
 		"moduleResolution": "node",
 		"outDir": "dist",
-		"baseUrl": ".",
-		"paths": {
-			"*": ["node_modules/*"]
-		}
-	}
+		"strict": true
+	},
+	"include": ["./src"]
 }
